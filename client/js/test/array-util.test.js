@@ -1,4 +1,4 @@
-const { getRange, getLetterRange } = require('../array_util');
+const { getRange, getLetterRange } = require('../array-util');
 
 describe('array-util', () => {
 
