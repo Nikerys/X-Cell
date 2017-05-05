@@ -26,15 +26,15 @@ class TableView {
     this.renderFormulaBar();
   }
 
-normalizeValueForRendering(value){
-  return value || '';
-}
+  normalizeValueForRendering(value){
+    return value || '';
+  }
 
-renderFormulaBar(){
-  const currentCellValue = this.model.getValue(this.currentCellLocation);
-  this.formulaBarEl.value = this.normalizeValueForRendering(currentCellValue);
-  this.formulaBarEl.focus();
-}
+  renderFormulaBar(){
+    const currentCellValue = this.model.getValue(this.currentCellLocation);
+    this.formulaBarEl.value = this.normalizeValueForRendering(currentCellValue);
+    this.formulaBarEl.focus();
+  }
 
   renderTable(){
     this.renderTableHeader();
@@ -97,7 +97,7 @@ renderFormulaBar(){
   attachEventHandlers(){
     this.sheetBodyEl.addEventListener('click', this.handleSheetClick.bind(this));
     this.formulaBarEl.addEventListener('keyup', this.handleFormulaBarChange.bind(this));
-}
+  }
 
   handleFormulaBarChange(evt){
     const value = this.formulaBarEl.value;
