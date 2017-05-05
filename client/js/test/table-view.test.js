@@ -11,6 +11,27 @@ describe('table-view', () => {
     document.documentElement.innerHTML = html;
   });
 
+describe('table footer', () => {
+  it('sums all the values in the column', () => {
+    // set up the initial state
+    const model = new TableModel(3, 3);
+    const view = new TableView(model);
+    const footerRowEl = document.querySelectorAll('TFOOT TR');
+    let tfs = document.querySelectorAll('TFOOT TR');
+    view.init();
+
+    // inspect the initial state
+    expect(footerRowEl[0].textContent).toBe('');
+
+    // simulate user action
+    model.setValue({col: 0, row: 0}, '2');
+    model.setValue({col: 0, row: 1}, '3');
+
+    // inspect the resulting state
+    expect(footerRowEl[0].textContent).toBe('5');
+  })
+});
+
 describe('formula bar', () => {
   it('makes changes TO the value of the current cell', () => {
     // set up the initial state
